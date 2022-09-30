@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.victorze.blog.config.RegistrationForm;
-import com.victorze.blog.entities.User;
 import com.victorze.blog.repositories.UserRepository;
 
 import lombok.AllArgsConstructor;
