@@ -1,11 +1,15 @@
 package com.victorze.blog.controllers;
 
+import java.util.Optional;
+
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.victorze.blog.config.RegistrationForm;
@@ -23,9 +27,12 @@ public class AuthController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping("/login")
-    public String loginForm(@AuthenticationPrincipal User user) {
+    public String loginForm(@AuthenticationPrincipal User user, @RequestParam Optional<String> error, Model model) {
         if (user != null) {
             return "redirect:/";
+        }
+        if (error.isPresent()) {
+            model.addAttribute("errorLogin", "Error al introducir el usuario o la contraseña");
         }
         return "auth/login";
     }

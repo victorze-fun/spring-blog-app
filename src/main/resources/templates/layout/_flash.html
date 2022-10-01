@@ -21,4 +21,15 @@
             ></button>
         </div>
     </div>
+    <div th:if="${errorLogin}">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <div th:text="${errorLogin}"></div>
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+            ></button>
+        </div>
+    </div>
 </section>
