@@ -40,6 +40,15 @@ public class AuthController {
 
     @PostMapping("/register")
     public String processRegistration(RegistrationForm form, RedirectAttributes ra) {
+        if (userRepository.findByEmail(form.getEmail()) != null) {
+            ra.addFlashAttribute("error", "Ya existe un usuario con el email " + form.getEmail());
+            return "redirect:/register";
+        }
+        if (userRepository.findByUsername(form.getUsername()) != null) {
+            ra.addFlashAttribute("error", "Ya existe un usuario con el nombre de usuario " + form.getUsername());
+            return "redirect:/register";
+        }
+
         userRepository.save(form.toUser(passwordEncoder));
         ra.addFlashAttribute("success", "Usuario registrado, inicie sesión con sus credenciales.");
         return "redirect:/login";

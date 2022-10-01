@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,8 +34,10 @@ public class User implements UserDetails {
 
     private final String bio;
 
+    @Column(unique=true)
     private final String username;
 
+    @Column(unique=true)
     private final String email;
 
     private final String password;
