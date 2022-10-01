@@ -1,0 +1,15 @@
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/layout.html}"
+>
+    <head>
+        <title>Post</title>
+    </head>
+
+    <article layout:fragment="content" class="col-md-10 offset-md-1">
+        <h1 th:text="${post.title}" class="display-6 my-4"></h1>
+
+        <div th:utext="${post.content}"></div>
+    </article>
+</html>

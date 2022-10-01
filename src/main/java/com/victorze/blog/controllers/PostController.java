@@ -3,6 +3,7 @@ package com.victorze.blog.controllers;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,6 +34,11 @@ public class PostController {
         post.setAuthor(user);
         postRepository.save(post);
         return "redirect:/";
+    }
+
+    @GetMapping("/posts/{id}")
+    public ModelAndView show(@PathVariable long id) {
+        return new ModelAndView("posts/show", "post", postRepository.findById(id));
     }
 
 }
