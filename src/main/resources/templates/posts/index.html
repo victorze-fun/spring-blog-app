@@ -1,0 +1,27 @@
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/layout.html}"
+>
+    <head>
+        <title>Posts</title>
+    </head>
+
+    <section layout:fragment="content">
+        <h1 class="text-center my-4">Publicaciones Recientes</h1>
+
+        <div th:each="post : ${posts}" class="col-md-10 offset-md-1 text-secondary">
+            <a
+                th:href="@{/posts/} + ${post.id}"
+                th:text="${post.title}"
+                class="display-6 text-decoration-none text-secondary link-primary"
+            ></a>
+            <p class="fs">
+                <span th:text="${post.author.name} + ' | '"></span>
+                <span
+                    th:text="${#temporals.format(post.createdAt, 'dd-MM-yyyy')}"
+                ></span>
+            </p>
+        </div>
+    </section>
+</html>
