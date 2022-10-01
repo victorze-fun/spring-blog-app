@@ -18,9 +18,8 @@ public class AuthorController {
 
     @GetMapping
     public String index(Model model) {
-        var users = userRepository.findAll();
-        model.addAttribute("users", users);
-        System.out.println(users);
+        model.addAttribute("users", userRepository.findAll());
+        model.addAttribute("page", "authors");
         return "author/index";
     }
 
