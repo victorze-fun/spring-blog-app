@@ -11,12 +11,15 @@
         <div th:each="user : ${users}" class="card my-4 col-md-10 offset-md-1">
             <div class="row g-0">
                 <div th:text="${user.name}" class="card-header"></div>
-                <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center p-3">
                     <img
                         src="https://avatars.githubusercontent.com/u/22132891?v=4"
-                        class="img-fluid"
+                        class="img-fluid rounded-circle avatar"
                         alt="avatar"
                     />
+                    <!--<div
+                        class="avatar rounded-circle mx-auto bg-secondary"
+                    ></div>-->
                 </div>
                 <div class="col-md-8 p-2">
                     <table

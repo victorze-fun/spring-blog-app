@@ -6,5 +6,10 @@
 }
 
 .max-width-layout {
-    max-width: 50rem;;
+    max-width: 50rem;
+}
+
+.avatar {
+    width: 10rem;
+    height: 10rem;
 }
