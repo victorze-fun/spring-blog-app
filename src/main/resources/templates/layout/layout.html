@@ -27,7 +27,9 @@
 
     <body>
         <div class="container max-width-layout">
-            <header th:replace="layout/_header :: header"></header>
+            <header th:replace="layout/_navbar :: navbar"></header>
+
+            <section th:replace="layout/_flash :: flash"></section>
 
             <section layout:fragment="content">
                 <p>Contenido de la página</p>
