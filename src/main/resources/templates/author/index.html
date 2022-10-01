@@ -1,51 +1,51 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es">
-    <head th:replace="layout :: head(title='Signup')"> </head>
-    <body>
-        <div class="container max-width-layout">
-            <head th:replace="layout :: header" />
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/layout.html}"
+>
+    <head>
+        <title>Autores</title>
+    </head>
 
-            <main>
-                <div
-                    th:each="user : ${users}"
-                    class="card my-4 col-md-10 offset-md-1"
-                >
-                    <div class="row g-0">
-                        <div th:text="${user.name}" class="card-header"></div>
-                        <div class="col-md-4 text-center">
-                            <img
-                                src="https://avatars.githubusercontent.com/u/22132891?v=4"
-                                class="img-fluid"
-                                alt="avatar"
-                            />
-                        </div>
-                        <div class="col-md-8 p-2">
-                            <table class="table table-borderless p-2" style="font-size: 0.95rem;">
-                                <tbody>
-                                  <tr class="border-bottom">
-                                    <td>Bio: </td>
-                                    <td th:text="${user.bio}"></td>
-                                  </tr>
-                                  <tr class="border-bottom">
-                                    <td class="text-nowrap">Fecha de alta:</td>
-                                    <td th:text="${#temporals.format(user.createdAt, 'dd-MM-yyyy')}"></td>
-                                  </tr>
-                                  <tr class="border-bottom">
-                                    <td>Email:</td>
-                                    <td th:text="${user.email}"></td>
-                                  </tr>
-                                  <tr>
-                                    <td>Actividad:</td>
-                                    <td>Actividad: 0 artículos y 0 comentarios</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                        </div>
-                    </div>
+    <section layout:fragment="content">
+        <div th:each="user : ${users}" class="card my-4 col-md-10 offset-md-1">
+            <div class="row g-0">
+                <div th:text="${user.name}" class="card-header"></div>
+                <div class="col-md-4 text-center">
+                    <img
+                        src="https://avatars.githubusercontent.com/u/22132891?v=4"
+                        class="img-fluid"
+                        alt="avatar"
+                    />
                 </div>
-            </main>
-
-            <script th:src="@{/js/bootstrap/validation.js}"></script>
+                <div class="col-md-8 p-2">
+                    <table
+                        class="table table-borderless p-2"
+                        style="font-size: 0.95rem"
+                    >
+                        <tbody>
+                            <tr class="border-bottom">
+                                <td>Bio:</td>
+                                <td th:text="${user.bio}"></td>
+                            </tr>
+                            <tr class="border-bottom">
+                                <td class="text-nowrap">Fecha de alta:</td>
+                                <td
+                                    th:text="${#temporals.format(user.createdAt, 'dd-MM-yyyy')}"
+                                ></td>
+                            </tr>
+                            <tr class="border-bottom">
+                                <td>Email:</td>
+                                <td th:text="${user.email}"></td>
+                            </tr>
+                            <tr>
+                                <td>Actividad:</td>
+                                <td>Actividad: 0 artículos y 0 comentarios</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </body>
+    </section>
 </html>

@@ -1,42 +1,42 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es">
-    <head th:replace="layout :: head(title='Signup')"> </head>
-    <body>
-        <div class="container max-width-layout">
-            <head th:replace="layout :: header" />
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/layout.html}"
+>
+    <head>
+        <title>Login</title>
+    </head>
 
-            <main class="d-flex justify-content-center">
-                <form
-                    th:action="@{/login}"
-                    method="POST"
-                    class="form-signup border p-4"
-                >
-                    <h2 class="mb-4 text-center">Iniciar sessión</h2>
-                    <div class="mb-3">
-                        <input
-                            type="email"
-                            name="username"
-                            placeholder="Correo electrónico"
-                            required
-                            class="form-control"
-                        />
-                    </div>
-                    <div class="mb-3">
-                        <input
-                            id="hexId"
-                            type="password"
-                            name="password"
-                            placeholder="Contraseña"
-                            required
-                            autocomplete="new-password"
-                            class="form-control"
-                        />
-                    </div>
-                    <div class="text-center mt-4">
-                        <button class="btn btn-primary">Iniciar sesión</button>
-                    </div>
-                </form>
-            </main>
-        </div>
-    </body>
+    <section layout:fragment="content" class="d-flex justify-content-center">
+        <form
+            th:action="@{/login}"
+            method="POST"
+            class="form-signup border p-4"
+        >
+            <h2 class="mb-4 text-center">Iniciar sessión</h2>
+            <div class="mb-3">
+                <input
+                    type="email"
+                    name="username"
+                    placeholder="Correo electrónico"
+                    required
+                    class="form-control"
+                />
+            </div>
+            <div class="mb-3">
+                <input
+                    id="hexId"
+                    type="password"
+                    name="password"
+                    placeholder="Contraseña"
+                    required
+                    autocomplete="new-password"
+                    class="form-control"
+                />
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary">Iniciar sesión</button>
+            </div>
+        </form>
+    </section>
 </html>

@@ -1,86 +1,85 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es">
-    <head th:replace="layout :: head(title='Signup')"> </head>
-    <body>
-        <div class="container max-width-layout">
-            <head th:replace="layout :: header" />
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/layout.html}"
+>
+    <head>
+        <title>Crear cuenta</title>
+        <script th:src="@{/js/bootstrap/validation.js}" defer></script>
+    </head>
 
-            <main class="d-flex justify-content-center">
-                <form
-                th:action="@{/register}"
-                    method="POST"
-                    novalidate
-                    class="form-signup needs-validation border p-4"
-                >
-                    <h2 class="mb-4 text-center">Registrarse</h2>
-                    <div class="input-group has-validation mb-3">
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Nombre"
-                            required
-                            class="form-control"
-                        />
-                    </div>
-                    <div class="mb-3">
-                        <textarea
-                            name="bio"
-                            placeholder="Breve biografía"
-                            maxlength="160"
-                            rows="3"
-                            aria-describedby="bioHelp"
-                            required
-                            class="form-control"
-                        ></textarea>
-                        <div id="bioHelp" class="form-text text-start">
-                            160 caracteres como máximo.
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Correo electrónico"
-                            required
-                            class="form-control"
-                        />
-                    </div>
-                    <div class="input-group has-validation mb-3">
-                        <input
-                            type="text"
-                            name="username"
-                            placeholder="Nombre de usuario"
-                            pattern="[0-9a-zA-Z]{4,10}"
-                            required
-                            class="form-control"
-                        />
-                        <div class="invalid-feedback">
-                            El nombre de usuario debe tener entre 4 a 10
-                            caracteres. No se admite espacios.
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <input
-                            id="hexId"
-                            type="password"
-                            name="password"
-                            placeholder="Contraseña"
-                            minlength="8"
-                            required
-                            autocomplete="new-password"
-                            class="form-control"
-                        />
-                        <div class="invalid-feedback">
-                            La contraseña debe tener al menos 8 caracteres.
-                        </div>
-                    </div>
-                    <div class="text-center mt-4">
-                        <button class="btn btn-primary">Registrarse</button>
-                    </div>
-                </form>
-            </main>
-
-            <script th:src="@{/js/bootstrap/validation.js}"></script>
-        </div>
-    </body>
+    <section layout:fragment="content" class="d-flex justify-content-center">
+        <form
+            th:action="@{/register}"
+            method="POST"
+            novalidate
+            class="form-signup needs-validation border p-4"
+        >
+            <h2 class="mb-4 text-center">Registrarse</h2>
+            <div class="input-group has-validation mb-3">
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Nombre"
+                    required
+                    class="form-control"
+                />
+            </div>
+            <div class="mb-3">
+                <textarea
+                    name="bio"
+                    placeholder="Breve biografía"
+                    maxlength="160"
+                    rows="3"
+                    aria-describedby="bioHelp"
+                    required
+                    class="form-control"
+                ></textarea>
+                <div id="bioHelp" class="form-text text-start">
+                    160 caracteres como máximo.
+                </div>
+            </div>
+            <div class="mb-3">
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Correo electrónico"
+                    required
+                    class="form-control"
+                />
+            </div>
+            <div class="input-group has-validation mb-3">
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Nombre de usuario"
+                    pattern="[0-9a-zA-Z]{4,10}"
+                    required
+                    class="form-control"
+                />
+                <div class="invalid-feedback">
+                    El nombre de usuario debe tener entre 4 a 10 caracteres. No
+                    se admite espacios.
+                </div>
+            </div>
+            <div class="mb-3">
+                <input
+                    id="hexId"
+                    type="password"
+                    name="password"
+                    placeholder="Contraseña"
+                    minlength="8"
+                    required
+                    autocomplete="new-password"
+                    class="form-control"
+                />
+                <div class="invalid-feedback">
+                    La contraseña debe tener al menos 8 caracteres.
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary">Registrarse</button>
+            </div>
+        </form>
+    </section>
 </html>
