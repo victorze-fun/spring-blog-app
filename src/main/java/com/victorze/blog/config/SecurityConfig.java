@@ -37,7 +37,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .formLogin()
-                        .loginPage("/login")
+                    .loginPage("/login")
                 .and()
                     .logout()
                         .logoutSuccessUrl("/")
