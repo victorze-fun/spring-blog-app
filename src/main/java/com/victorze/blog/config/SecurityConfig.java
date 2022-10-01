@@ -36,8 +36,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-                .formLogin()
-                    .loginPage("/login")
+                .authorizeRequests()
+                    .mvcMatchers("/posts/create").hasRole("USER")
+                    .anyRequest().permitAll()
+                .and()
+                    .formLogin()
+                        .loginPage("/login")
                 .and()
                     .logout()
                         .logoutSuccessUrl("/")
