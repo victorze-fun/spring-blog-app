@@ -18,3 +18,15 @@
     min-height: 20rem;
     font-size: 1rem;
 }
+
+#editor p,
+#editor ul,
+#editor ol,
+#editor h1,
+#editor h2,
+#editor h3,
+#editor h4,
+#editor h5,
+#editor h6 {
+    margin-bottom: 1rem;
+}

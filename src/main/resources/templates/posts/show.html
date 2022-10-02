@@ -46,25 +46,22 @@
                     class="btn btn-primary d-block mx-auto"
                 />
             </form>
-
-            <h3
-                th:with="suffix=${post.comments.size()} != 1 ? 's' : ''"
-                th:text="${post.comments.size()} + ' Comentario' +  ${suffix}"
-                class="mb-3"
-            ></h3>
-
-            <ul class="list-group mb-3">
-                <li
-                    th:each="comment : ${post.comments}"
-                    class="list-group-item"
-                >
-                    <span
-                        th:text="${comment.user.name}"
-                        class="text-secondary d-block"
-                    ></span>
-                    <span th:text="${comment.content}"></span>
-                </li>
-            </ul>
         </section>
+
+        <h3
+            th:with="suffix=${post.comments.size()} != 1 ? 's' : ''"
+            th:text="${post.comments.size()} + ' Comentario' +  ${suffix}"
+            class="mb-3"
+        ></h3>
+
+        <ul class="list-group mb-3">
+            <li th:each="comment : ${post.comments}" class="list-group-item">
+                <span
+                    th:text="${comment.user.name}"
+                    class="text-secondary d-block"
+                ></span>
+                <span th:text="${comment.content}"></span>
+            </li>
+        </ul>
     </article>
 </html>

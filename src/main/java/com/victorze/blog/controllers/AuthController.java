@@ -57,7 +57,7 @@ public class AuthController {
         }
 
         userRepository.save(form.toUser(passwordEncoder));
-        ra.addFlashAttribute("success", "Usuario registrado, inicie sesión con sus credenciales.");
+        ra.addFlashAttribute("success", "Usuario registrado. Inicie sesión con sus credenciales.");
         return "redirect:/login";
     }
 
