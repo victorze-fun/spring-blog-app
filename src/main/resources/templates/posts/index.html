@@ -10,13 +10,13 @@
     <section layout:fragment="content">
         <h1 class="text-center my-4">Publicaciones Recientes</h1>
 
-        <div th:each="post : ${posts}" class="col-md-10 offset-md-1 text-secondary">
+        <div th:each="post : ${posts}" class="col-md-10 offset-md-1">
             <a
                 th:href="@{/posts/} + ${post.id}"
                 th:text="${post.title}"
-                class="display-6 text-decoration-none text-secondary link-primary"
+                class="display-6 text-decoration-none text-dark text-opacity-75 link-primary"
             ></a>
-            <p class="fs">
+            <p class="text-secondary text-opacity-75">
                 <span th:text="${post.author.name} + ' | '"></span>
                 <span
                     th:text="${#temporals.format(post.createdAt, 'dd-MM-yyyy')}"
