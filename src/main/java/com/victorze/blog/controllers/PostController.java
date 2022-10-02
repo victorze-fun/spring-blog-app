@@ -38,7 +38,7 @@ public class PostController {
 
     @GetMapping("/posts/{id}")
     public ModelAndView show(@PathVariable long id) {
-        return new ModelAndView("posts/show", "post", postRepository.findById(id));
+        return new ModelAndView("posts/show", "post", postRepository.findById(id).get());
     }
 
 }
