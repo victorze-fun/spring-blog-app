@@ -15,6 +15,6 @@
 }
 
 #editor {
-    height: 15rem;
+    min-height: 20rem;
     font-size: 1rem;
 }
