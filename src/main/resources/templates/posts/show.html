@@ -20,16 +20,36 @@
         <div th:utext="${post.content}"></div>
 
         <!-- Comentarios -->
-        <p sec:authorize="!isAuthenticated()" class="mt-5">
-            Para dejar un comentario debe
-            <a class="text-decoration-none" th:href="@{/login}">
-                iniciar sessión.
-            </a>
-        </p>
+        <div
+            sec:authorize="!isAuthenticated()"
+            class="alert alert-secondary"
+            role="alert"
+        >
+            Necesita iniciar sessión para poder comentar este artículo.
+        </div>
         <section sec:authorize="isAuthenticated()">
+            <form
+                th:action="@{'/posts/' + ${post.id} + '/comments'}"
+                method="POST"
+                class="my-4"
+            >
+                <textarea
+                    name="content"
+                    placeholder="Deja un comentario"
+                    class="form-control mb-3"
+                    rows="3"
+                    required
+                ></textarea>
+                <input
+                    type="submit"
+                    value="Publicar comentario"
+                    class="btn btn-primary d-block mx-auto"
+                />
+            </form>
+
             <h3
                 th:with="suffix=${post.comments.size()} != 1 ? 's' : ''"
-                th:text="${#lists.size(post.comments)} + ' Comentario' +  ${suffix}"
+                th:text="${post.comments.size()} + ' Comentario' +  ${suffix}"
                 class="mb-3"
             ></h3>
 
@@ -45,23 +65,6 @@
                     <span th:text="${comment.content}"></span>
                 </li>
             </ul>
-
-            <form
-                th:action="@{'/posts/' + ${post.id} + '/comments'}"
-                method="POST"
-            >
-                <textarea
-                    name="content"
-                    placeholder="Deja un comentario"
-                    class="form-control mb-3"
-                    rows="3"
-                ></textarea>
-                <input
-                    type="submit"
-                    value="Publicar comentario"
-                    class="btn btn-primary d-block mx-auto"
-                />
-            </form>
         </section>
     </article>
 </html>
