@@ -1,7 +1,6 @@
 package com.victorze.blog.entities;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -18,13 +17,11 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Post {
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private String title;
 
     @Lob
     private String content;
@@ -32,10 +29,10 @@ public class Post {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    @ManyToOne
-    private User author;
+    @OneToMany
+    private List<User> users;
 
-    @OneToMany(mappedBy = "post")
-    private List<Comment> comments = new ArrayList<>();
+    @ManyToOne
+    private Post post;
 
 }
