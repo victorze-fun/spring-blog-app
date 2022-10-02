@@ -1,10 +1,12 @@
 package com.victorze.blog.controllers;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.victorze.blog.entities.Post;
@@ -38,7 +40,12 @@ public class PostController {
 
     @GetMapping("/posts/{id}")
     public ModelAndView show(@PathVariable long id) {
-        return new ModelAndView("posts/show", "post", postRepository.findById(id).get());
+        var postOptional = postRepository.findById(id);
+        if (postOptional.isPresent()) {
+            return new ModelAndView("posts/show", "post", postOptional.get());
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
     }
 
 }
