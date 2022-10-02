@@ -2,6 +2,8 @@
 
 Spring Blog App es un aplicación donde los usuarios pueden publicar artículos y comentarios.
 
+[spring-blog-app.webm](https://user-images.githubusercontent.com/22132891/193474995-34dcf345-d1d4-49ce-bb89-460a4ef9b602.webm)
+
 ## Tecnologías utilizadas
 
 - __Lenguajes:__ Java, JavaScript,
@@ -16,9 +18,7 @@ Spring Blog App es un aplicación donde los usuarios pueden publicar artículos 
 - Configuar Spring Security para proteger algunas rutas.
 - Configurar y utilizar QuillJS para mostrar un editor de texto enriquecido.
 - Utilizar Thymeleaf Layout para reutilizar código y mantener las vistas limpias.
-- Definir las entidades y sus relaciones.
 - Utilizar la API de Bootstrap para validar los datos ingresados en la creación de usuario.
-- Separar los mensajes de éxito y error en un fragmento.
 
 ## Restricciones de seguridad
 
