@@ -2,7 +2,7 @@
 
 Spring Blog App es un aplicación donde los usuarios pueden publicar artículos y comentarios.
 
-# Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - __Lenguajes:__ Java, JavaScript,
 - __Frameworks:__ Spring y Bootstrap 5.
@@ -11,14 +11,16 @@ Spring Blog App es un aplicación donde los usuarios pueden publicar artículos 
 - __Bibliotecas:__ Lombok, Thymeleaf Layout Dialect y Thymeleaf Extras Springsecurity5.
 - __Frontend:__ HTML y CSS.
 
-# Retos de la aplicación
+## Retos de la aplicación
 
 - Configuar Spring Security para proteger algunas rutas.
-- Definir las entidades y sus relaciones.
-- Utilizar Thymeleaf Layout para reutilizar código y mantener las vistas limpias.
 - Configurar y utilizar QuillJS para mostrar un editor de texto enriquecido.
+- Utilizar Thymeleaf Layout para reutilizar código y mantener las vistas limpias.
+- Definir las entidades y sus relaciones.
+- Utilizar la API de Bootstrap para validar los datos ingresados en la creación de usuario.
+- Separar los mensajes de éxito y error en un fragmento.
 
-# Restricciones de seguridad
+## Restricciones de seguridad
 
 - Solo usuarios registrados pueden publicar artículos.
 - Solo usuarios registrados pueden publicar comentarios.
@@ -26,4 +28,12 @@ Spring Blog App es un aplicación donde los usuarios pueden publicar artículos 
 - No es necesario registrarse para ver la lista de autores.
 - No es necesario registrarse para un artículo específico.
 
+## Configurar un entorno de desarrollo
 
+- Clonar el repositorio
+  ```bash
+  git clone https://github.com/victorze/spring-blog-app
+  ```
+- Verificar que un servidor MySQL se encuentre activo y funcionando.
+- Ingresar los datos de conexión a la base de datos en `application.properties`
+- Abrir y ejecutar la aplicación con un IDE.
