@@ -2,7 +2,7 @@
 
 Spring Blog App es un aplicación donde los usuarios pueden publicar artículos y comentarios.
 
-[spring-blog-app.webm](https://user-images.githubusercontent.com/22132891/193476288-d97e9bef-af49-41cf-a86f-18a00d11b3a9.webm)
+[spring-blog-app.webm](https://user-images.githubusercontent.com/22132891/193481148-f5493468-f5a3-472b-b3a1-7403f2700f2e.webm)
 
 ## Tecnologías utilizadas
 
@@ -22,11 +22,11 @@ Spring Blog App es un aplicación donde los usuarios pueden publicar artículos 
 
 ## Restricciones de seguridad
 
-- Solo usuarios registrados pueden publicar artículos.
-- Solo usuarios registrados pueden publicar comentarios.
-- No es necesario registrarse para ver la lista de artículos publicados.
-- No es necesario registrarse para ver la lista de autores.
-- No es necesario registrarse para un artículo específico.
+- Solo usuarios autenticados pueden publicar artículos.
+- Solo usuarios autenticados pueden publicar comentarios.
+- No es necesario estar autenticado para ver la lista de artículos publicados.
+- No es necesario estar autenticado para ver la lista de autores.
+- No es necesario estar autenticado para un artículo específico.
 
 ## Configurar un entorno de desarrollo
 
