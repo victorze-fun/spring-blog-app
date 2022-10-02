@@ -32,7 +32,7 @@ public class AuthController {
             return "redirect:/";
         }
         if (error.isPresent()) {
-            model.addAttribute("errorLogin", "El usuario no existe o hubo un error al introducir el usuario y la contraseña");
+            model.addAttribute("error", "El usuario no existe o hubo un error al introducir el usuario y la contraseña.");
         }
         return "auth/login";
     }
