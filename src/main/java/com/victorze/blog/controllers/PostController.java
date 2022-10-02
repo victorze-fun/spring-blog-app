@@ -21,7 +21,7 @@ public class PostController {
 
     @GetMapping("/")
     public ModelAndView index() {
-        return new ModelAndView("posts/index", "posts", postRepository.findAll());
+        return new ModelAndView("posts/index", "posts", postRepository.findTop10ByOrderByCreatedAtDesc());
     }
 
     @GetMapping("/posts/create")
