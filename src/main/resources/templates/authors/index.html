@@ -40,7 +40,16 @@
                             </tr>
                             <tr>
                                 <td>Actividad:</td>
-                                <td>0 artículos y 0 comentarios</td>
+                                <td>
+                                    <span
+                                        th:with="suffix=${user.posts.size()} != 1 ? 's' : ''"
+                                        th:text="${user.posts.size()} + ' artículo' +  ${suffix} + ' y '"
+                                    ></span>
+                                    <span
+                                        th:with="suffix=${user.comments.size()} != 1 ? 's' : ''"
+                                        th:text="${user.comments.size()} + ' comentario' + ${suffix}"
+                                    ></span>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
