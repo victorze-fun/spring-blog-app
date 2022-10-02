@@ -10,7 +10,7 @@
     <section layout:fragment="content">
         <h1 class="text-center my-4">Publicaciones Recientes</h1>
 
-        <div th:each="post : ${posts}">
+        <div th:each="post : ${posts}" class="mx-3">
             <a
                 th:href="@{/posts/} + ${post.id}"
                 th:text="${post.title}"
