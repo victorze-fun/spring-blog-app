@@ -1,15 +1,67 @@
 <html
     xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
     layout:decorate="~{layout/layout.html}"
 >
     <head>
-        <title>Post</title>
+        <title th:text="${post.title}"></title>
     </head>
 
-    <article layout:fragment="content" class="col-md-10 offset-md-1">
-        <h1 th:text="${post.title}" class="display-6 my-4"></h1>
+    <article layout:fragment="content" class="col-md-10 offset-md-1 mb-5">
+        <h1 th:text="${post.title}" class="display-6 mt-4"></h1>
+        <p class="text-secondary text-opacity-75">
+            <span th:text="${post.author.name} + ' | '"></span>
+            <span
+                th:text="${#temporals.format(post.createdAt, 'dd-MM-yyyy')}"
+            ></span>
+        </p>
 
         <div th:utext="${post.content}"></div>
+
+        <!-- Comentarios -->
+        <p sec:authorize="!isAuthenticated()" class="mt-5">
+            Para dejar un comentario debe
+            <a class="text-decoration-none" th:href="@{/login}">
+                iniciar sessión.
+            </a>
+        </p>
+        <section sec:authorize="isAuthenticated()">
+            <h3
+                th:with="suffix=${post.comments.size()} != 1 ? 's' : ''"
+                th:text="${#lists.size(post.comments)} + ' Comentario' +  ${suffix}"
+                class="mb-3"
+            ></h3>
+
+            <ul class="list-group mb-3">
+                <li
+                    th:each="comment : ${post.comments}"
+                    class="list-group-item"
+                >
+                    <span
+                        th:text="${comment.user.name}"
+                        class="text-secondary d-block"
+                    ></span>
+                    <span th:text="${comment.content}"></span>
+                </li>
+            </ul>
+
+            <form
+                th:action="@{'/posts/' + ${post.id} + '/comments'}"
+                method="POST"
+            >
+                <textarea
+                    name="content"
+                    placeholder="Deja un comentario"
+                    class="form-control mb-3"
+                    rows="3"
+                ></textarea>
+                <input
+                    type="submit"
+                    value="Publicar comentario"
+                    class="btn btn-primary d-block mx-auto"
+                />
+            </form>
+        </section>
     </article>
 </html>

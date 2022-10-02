@@ -37,7 +37,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeRequests()
-                    .mvcMatchers("/posts/create").hasRole("USER")
+                    .mvcMatchers("/posts/create", "/posts/{id:[\\d+]}/comments").hasRole("USER")
                     .anyRequest().permitAll()
                 .and()
                     .formLogin()
