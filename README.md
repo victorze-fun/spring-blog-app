@@ -1,6 +1,6 @@
 # Spring Blog App
 
-Spring Blog App es un aplicación donde los usuarios pueden publicar artículos y comentarios.
+Spring Blog App es un aplicación donde los usuarios pueden publicar artículos y hacer comentarios.
 
 [spring-blog-app.webm](https://user-images.githubusercontent.com/22132891/193481148-f5493468-f5a3-472b-b3a1-7403f2700f2e.webm)
 
