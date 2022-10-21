@@ -32,6 +32,8 @@ import lombok.ToString;
 @Entity
 public class User implements UserDetails {
 
+    private static final long serialVersionUID = -6702803287091521309L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
