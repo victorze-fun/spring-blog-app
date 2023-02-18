@@ -26,7 +26,7 @@ Spring Blog App es un aplicación donde los usuarios pueden publicar artículos 
 - Solo usuarios autenticados pueden publicar comentarios.
 - No es necesario estar autenticado para ver la lista de artículos publicados.
 - No es necesario estar autenticado para ver la lista de autores.
-- No es necesario estar autenticado para un artículo específico.
+- No es necesario estar autenticado para leer un artículo específico.
 
 ## Configurar un entorno de desarrollo
 
